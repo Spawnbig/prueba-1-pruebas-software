@@ -18,7 +18,8 @@ const getRecommendationWithGenre = async (req, res) => {
 }
 
 
+
 module.exports = {
     getRecommendationConsole,
-    getRecommendationWithGenre
+    getRecommendationWithGenre,
 }

@@ -8,7 +8,7 @@ const videoGames = require("../utils/load-games");
  * @param {string} gameName - The name of the video game to find.
  * @returns {Object} - The video game object if found, otherwise undefined.
  */
-const findVideoGameByName = async (gameName) => {
+const findVideoGameByName = (gameName) => {
     const modifyName = deleteQuotationMarks(gameName);
     const gamesList = Object.values(videoGames).flatMap(gamesForConsole => gamesForConsole);
     return gamesList.find(game => game.name.toUpperCase() === modifyName.toUpperCase());

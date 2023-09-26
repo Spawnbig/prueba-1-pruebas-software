@@ -13,7 +13,7 @@ const {random_game}= require("../services/suggest_random_game");
 const getRecommendationConsole = async (req, res) => {
     const consoleValue = req.params.console;
     (consoleValue in videoGames) 
-        ? res.status(200).json(getRandomGames(videoGames[consoleValue]))
+        ? res.status(200).json({response : getRandomGames(videoGames[consoleValue])})
         : res.status(400).json({ error: 'Console not found' });
 }
 

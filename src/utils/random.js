@@ -5,7 +5,8 @@
  * @returns {Array} - An array containing two randomly selected games from the input array.
  */
 function getRandomGames(games) {
-    return games.sort(() => 0.5 - Math.random()).slice(0, 2);
+    const sortedGames = games.slice().sort(() => 0.5 - Math.random());
+    return sortedGames.slice(0, 2).map(({name}) => name);
 }
 
 

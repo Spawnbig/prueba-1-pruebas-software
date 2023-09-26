@@ -1,25 +1,11 @@
 const videoGames = require("../utils/load-games");
+const { getRandomGames } = require("../utils/random");
 
-
-
-const get_games_by_console = async (console_abreviation) => {
-    return await videoGames[console_abreviation];
+const getRandomByGenre = async (games,genre,limit) => {
+    const gamesFiltered = games.filter(game => game.genres.some(genreGame => genreGame.toLowerCase() === genre.toLowerCase()));
+    return getRandomGames(gamesFiltered, limit);
 }
-
-
-const random_game = async (console_game, genre) => {
-    const games = await get_games_by_console(console_game);
-    gamesFiltered = [];
-    games.forEach(game => {
-        if(game.genres.includes(genre)){
-            gamesFiltered.push(game);
-        }
-    });
-    return gamesFiltered[Math.floor(Math.random() * gamesFiltered.length)];
-}
-
-
 
 module.exports = {
-    random_game,
+    getRandomByGenre
 }

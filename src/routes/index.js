@@ -1,5 +1,6 @@
 const { getRecommendationConsole, getRecommendationWithGenre } = require("../controllers/consoles.controller");
-const { CONSOLES_PREFIX } = require("../utils/constants");
+const { getRandomGamesFromGenre } = require("../controllers/genre.controller");
+const { CONSOLES_PREFIX, GENRES_PREFIX } = require("../utils/constants");
 
 /**
  * Sets up the routes for handling HTTP requests in the APP.
@@ -10,6 +11,7 @@ const { CONSOLES_PREFIX } = require("../utils/constants");
 const setupRoutes = (app) => {
     app.use(CONSOLES_PREFIX + '/:console/random_games', getRecommendationConsole);
     app.post(CONSOLES_PREFIX + '/:console/genre/random_game', getRecommendationWithGenre);
+    app.post(GENRES_PREFIX + '/random_games', getRandomGamesFromGenre);
 }
 
 module.exports = setupRoutes;
